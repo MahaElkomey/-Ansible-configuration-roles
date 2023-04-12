@@ -1,0 +1,6 @@
+package_name: nginx
+message: Hello From iti 43
+template_file : index.html.j2
+files_list:
+  - style.css
+  - script.js

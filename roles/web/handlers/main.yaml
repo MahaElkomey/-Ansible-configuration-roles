@@ -1,0 +1,16 @@
+- name: copy_handler
+  copy:
+    src: "{{ item }}"
+    dest: /var/www/html/
+  loop: "{{ files_list }}"
+  notify: temp_handler 
+  
+- name: temp_handler
+  template:
+     src: "{{ template_file }}"
+     dest: /var/www/html/index.html
+  notify: start_service_handler 
+     
+- name: start_service_handler
+  command:
+    cmd: service nginx start
